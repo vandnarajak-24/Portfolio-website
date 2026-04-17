@@ -1,0 +1,224 @@
+:root {
+    --bg-dark: #0f172a;
+    --accent: #38bdf8;
+    --text-main: #f8fafc;
+    --text-dim: #94a3b8;
+    --glass: rgba(30, 41, 59, 0.7);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container { padding: 80px 10%; }
+
+/* Navigation */
+.glass-nav {
+    position: fixed;
+    top: 0; width: 100%;
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo { font-size: 1.5rem; font-weight: 800; }
+.logo span { color: var(--accent); }
+.nav-links { display: flex; list-style: none; gap: 30px; }
+.nav-links a { color: var(--text-main); text-decoration: none; font-weight: 500; transition: 0.3s; }
+.nav-links a:hover { color: var(--accent); }
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle at top right, #1e293b, #0f172a);
+}
+
+.badge {
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+h1 { font-size: 4rem; margin: 20px 0; letter-spacing: -2px; }
+
+/* Project Cards */
+.project-flex { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+.card {
+    background: var(--glass);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform 0.4s ease;
+}
+.card:hover { transform: translateY(-10px); border-color: var(--accent); }
+.card-tag { font-size: 0.7rem; color: var(--accent); text-transform: uppercase; font-weight: bold; margin-bottom: 10px; }
+
+.btn-primary {
+    background: var(--accent);
+    color: var(--bg-dark);
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+}
+/* Update these specific classes in your style.css */
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px; /* Limits the width for better readability */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin: 15px 0 10px 0; /* Adjusted margins: Top, Right, Bottom, Left */
+    letter-spacing: -2px;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    color: var(--text-dim);
+    margin-bottom: 40px; /* IMPORTANT: Creates space above the buttons */
+    line-height: 1.6;
+    word-wrap: break-word; /* Prevents long words from overflowing */
+}
+
+/* Updated Button Container for Responsiveness */
+.hero-btns {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px; /* Extra safety space */
+}
+
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s ease;
+    white-space: nowrap; /* Prevents button text from wrapping */
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: var(--bg-dark);
+}
+
+.btn-primary:hover {
+    background: #fff; /* White on hover */
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+}
+
+.btn-secondary:hover {
+    background: rgba(56, 189, 248, 0.1);
+}
+
+/* ESSENTIAL: Responsive fix for small screens */
+@media (max-width: 600px) {
+    .hero-content h1 {
+        font-size: 2.5rem; /* Smaller title on mobile */
+    }
+
+    .hero-btns {
+        flex-direction: column; /* Stacks buttons vertically on mobile */
+        gap: 15px;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%; /* Buttons take full width of container */
+        text-align: center;
+    }
+}
+/* Contact Section Styling */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.qa-form {
+    background: var(--glass);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    font-family: inherit;
+}
+
+.form-group input:focus {
+    border-color: var(--accent);
+    outline: none;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    color: var(--text-dim);
+}
+
+.social-icon {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.social-icon:hover {
+    background: var(--accent);
+    color: var(--bg-dark);
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
